@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}HomePage {% endblock title %}
+
+{% block content %}
+
+<div class="box-1">box-1</div>
+<div class="box-2">box-2</div>
+<div class="box-3">box-3</div>
+<div class="box-4">Below is DTL used</div>
+
+<h2> My first name is {{ first_name }}. My last name is {{ last_name }}.</h2>
+
+
+<!-- let's add values  -->
+
+<form action="add" method="POST"> <!--  by default it is GET. But here we're using POST that's y method="POST" -->
+    {% csrf_token %}
+    <!-- for provide security to sending data to server . See the setting.py file U'll get this middleWare  -->
+    <p> Enter 1st Number: <input type="text" placeholder="1st number" name="num1"> </p>
+    <p> Enter 2nd Number: <input type="text" placeholder="2nd number" name="num2"> </p>
+    <button>Result </button>
+</form>
+
+<!-- NOTE: To send data always use POST and to Fetch data Use GET  -->
+{% endblock content %}
